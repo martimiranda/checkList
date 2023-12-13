@@ -25,10 +25,31 @@ function onDeviceReady() {
     // Cordova is now initialized. Have fun!
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     //document.getElementById('deviceready').classList.add('ready');
+    
+    $('#homePage').on('click', '.borrar', function() {
+        var elementoLi = $(this).closest('li');
+        elementoLi.remove();
+        $('#homePage ul[data-role="listview"]').listview('refresh');
+    });
     $("#boto1").on("click", function() {
+    
+            // Coloca aquí el código que deseas ejecutar cuando se hace clic en el botón
+            
+        
+        $("#tasks").css("display","none");
+        $("#formulario").css("display","block");
+
+    
+        });
+    
+    /*$("#boto1").on("click", function() {
+    var task = prompt("What task you want to add?");
+
         // Coloca aquí el código que deseas ejecutar cuando se hace clic en el botón
         
-    var newListItem = $('<li><a href="#page4">NEW ELEMENT</a></li>');
+    var newListItem = $('<li><a href="#page4">'+task+'</a><a class="borrar">Drop</a></li>');
+    
+
 
     // Agregar el nuevo elemento al listview
     $('#homePage ul[data-role="listview"]').append(newListItem);
@@ -36,5 +57,5 @@ function onDeviceReady() {
     // Refrescar el diseño de jQuery Mobile después de agregar el nuevo elemento
     $('#homePage ul[data-role="listview"]').listview('refresh');
 
-    });
+    });*/
 }
