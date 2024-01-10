@@ -31,23 +31,14 @@ function onDeviceReady() {
         elementoLi.remove();
         $('#homePage ul[data-role="listview"]').listview('refresh');
     });
+    
     $("#boto1").on("click", function() {
-    
-            // Coloca aquí el código que deseas ejecutar cuando se hace clic en el botón
-            
-        
-        $("#tasks").css("display","none");
-        $("#formulario").css("display","block");
-
-    
-        });
-    
-    /*$("#boto1").on("click", function() {
     var task = prompt("What task you want to add?");
 
         // Coloca aquí el código que deseas ejecutar cuando se hace clic en el botón
         
-    var newListItem = $('<li><a href="#page4">'+task+'</a><a class="borrar">Drop</a></li>');
+    var newListItem = $('<li><a href="#"><button class="borrar">Borrar</button> <button class="editar">Editar</button><input class="escritura" style="display:none;"></input><button class="aceptar" style="display:none;">Aceptar</button>'+task+'</a></li>');
+    
     
 
 
@@ -57,5 +48,20 @@ function onDeviceReady() {
     // Refrescar el diseño de jQuery Mobile después de agregar el nuevo elemento
     $('#homePage ul[data-role="listview"]').listview('refresh');
 
-    });*/
+    });
+    
+    $('#homePage').on('click', '.editar', function() {
+        var elementoLi = $(this).closest('li');
+        var elementoDentroLi = elementoLi.find('.escritura');
+        var elementoDentroLi2 = elementoLi.find('.aceptar');
+        elementoDentroLi.css('display', 'block');
+        elementoDentroLi2.css('display', 'block');
+    });
+    $('#homePage').on('click', '.aceptar', function() {
+        var elementoLi = $(this).closest('li');
+        var text = elementoLi.find('.escritura').val();
+        elementoLi.find('a').contents().last()[0].nodeValue = text;
+        elementoLi.find('.escritura').css('display', 'none');
+        elementoLi.find('.aceptar').css('display', 'none');
+    });
 }

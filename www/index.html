@@ -82,6 +82,18 @@
       border-radius: 4px;
       cursor: pointer;
     }
+	#tasks li a button {
+		font-size: 0.7em; /* Ajusta el tamaño de fuente según tus preferencias */
+  padding: 5px 10px; /* Ajusta el relleno para controlar el tamaño del botón */
+  margin-left: 5px;
+  width: auto; 
+}
+
+#tasks li a {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
 		</style>
 		
         <title>Hello World</title>
@@ -93,9 +105,9 @@
 				<h1>Home</h1>
 			</div>
 			<ul id="tasks" data-role="listview" class="ui-nodisc-icon">
-				<li><a href="#page1">Page1</a><a class="borrar" data-icon="delete" data-iconpos="notext"></a></a></li>
-				<li><a href="#page2">Page2</a><a class="borrar" data-icon="delete" data-iconpos="notext"></a></a></li>
-				<li><a href="#page3">Page3</a><a class="borrar" data-icon="delete" data-iconpos="notext"></a></a></li>
+				<li><a href="#"><button class="borrar">Borrar</button> <button class="editar">Editar</button><input class="escritura" style="display:none;"></input><button class="aceptar" style="display:none;">Aceptar</button>Page1</a></li>
+				<li><a href="#"><button class="borrar">Borrar</button> <button class="editar">Editar</button><input class="escritura" style="display:none;"></input><button class="aceptar" style="display:none;">Aceptar</button>Page2</a></li>
+				<li><a href="#"><button class="borrar">Borrar</button> <button class="editar">Editar</button><input class="escritura" style="display:none;"></input><button class="aceptar" style="display:none;">Aceptar</button>Page3</a></li>
 			</ul>
 			<div id="formulario" style="display: none;">
 				<h2>Task Name:</h2>
@@ -111,7 +123,7 @@
 		</div> <!-- home page -->
 
 		<!-- page 1 -->
-		<div data-role="page" id="page1">
+		<div data-role="page" id="page1">	
 			<div data-role="header">
 				<a href="#" data-icon="back" data-rel="back" title="Go back">Back</a>
 				<h1>Page1</h1>
